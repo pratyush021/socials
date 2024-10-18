@@ -4,6 +4,7 @@
 
 body {
   font-synthesis: none;
+  font-family: var(--font-geist-sans);
 }
 
 @layer base {
