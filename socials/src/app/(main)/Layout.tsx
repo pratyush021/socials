@@ -1,7 +1,7 @@
 import { validateRequest } from "@/auth";
 import { redirect } from "next/navigation";
 import SessionProvider from "./SessionProvider";
-import { useContext } from "react";
+import Navbar from "./Navbar.";
 
 export default async function Layout({
   children,
@@ -12,5 +12,12 @@ export default async function Layout({
 
   if (!session.user) redirect("/login");
 
-  return <SessionProvider value={session}>{children}</SessionProvider>;
+  return (
+    <SessionProvider value={session}>
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <div className="mx-auto max-w-7xl p-5">{children}</div>
+      </div>
+    </SessionProvider>
+  );
 }
